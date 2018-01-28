@@ -1,0 +1,5 @@
+I am getting stuck on the portion of the lab in the pygame of changing the color of the game background. It is giving me the error:
+
+- invalid literal for int() with base 10 
+
+-invalid color argument for DISPLAYSURF.fill(rgb)
