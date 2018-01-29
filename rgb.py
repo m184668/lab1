@@ -13,7 +13,12 @@ DISPLAYSURF.fill(WHITE)
 while(True):
   l = s.readline()
   colors = l.rstrip().split(",")
-  rgb = [ int(val) for val in colors]
+  try:
+    rgb = [ int(val) for val in colors]
+    DISPLAYSURF.fill(rgb[0],rgb[1],rgb[2])
+    pygame.display.update()
+  except ValueError:
+    print("Pass")
   print rgb
  
 
