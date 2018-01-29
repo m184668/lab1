@@ -1,11 +1,11 @@
-#define LED_R 9
-#define LED_G 10
-#define LED_B 11
+#define LED_R 3
+#define LED_G 9
+#define LED_B 5
 
-int xPin = A1;
+int xPin = A3;
 int yPin = A2;
 int xValue, yValue,butValue;
-int buttonPin = 2;
+int buttonPin = A1;
 //Connect VCC to 5V and GND to GND
 int xposition = 0;
 int yPosition = 0;
@@ -34,18 +34,25 @@ void setup() {
  Serial.begin(9600);
  pinMode(xPin,INPUT);
  pinMode(yPin,INPUT);
- pinMode(led,OUTPUT);
+ //pinMode(led,OUTPUT);
  pinMode(buttonPin,INPUT_PULLUP);
  
 }
 
-void_loop(){
+void loop(){
   int val;
   val = analogRead(A0);
-  analogWrite(3, gamma8[val/4]) // turning on LEDS
+  analogWrite(3, gamma8[val/4]); // turning on LEDS
   xValue = map(analogRead(xPin),0, 1024, 0, 252);
   yValue = map(analogRead(yPin),0,1024,0, 252); 
   butValue = map(analogRead(buttonPin),0,1024,0,252);
+  analogWrite(LED_G,xValue);
+  analogWrite(LED_B,yValue);
+  analogWrite(LED_R,butValue);  
   Serial.print(xValue);
+  Serial.print(",");
   Serial.print(yValue);
+  Serial.print(",");
+  Serial.println(butValue);
+  
 }

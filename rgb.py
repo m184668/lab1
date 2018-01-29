@@ -14,8 +14,8 @@ while(True):
   l = s.readline()
   colors = l.rstrip().split(",")
   rgb = [ int(val) for val in colors]
-  pygame.draw.rect(DISPLAYSURF, rgb, ((500,400), 0, 32))
   print rgb
+ 
 
 
 
