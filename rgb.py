@@ -21,14 +21,17 @@ while True:
   colors = l.rstrip().split(",")
 
   try:
-   Color_G = int(colors[0])
-   Color_B = int(colors[1])
-   Color_R = int(colors[2])
-   DISPLAYSURF.fill((Color_R,Color_G, Color_B))
-   pygame.display.update()
+    try:
+      Color_G = int(colors[0])
+      Color_B = int(colors[1])
+      Color_R = int(colors[2])
+      DISPLAYSURF.fill((Color_R,Color_G, Color_B))
+      pygame.display.update()
+    except IndexError:
+	print('IndexPass')
 
   except ValueError:
-    print("Pass")
+    print("ValuePass")
   
    
     
